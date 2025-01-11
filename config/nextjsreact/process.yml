@@ -1,0 +1,4 @@
+apps:
+    - script: /var/www/nextjsreact/server.js
+      instances: 12
+      exec_mode: cluster

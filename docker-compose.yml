@@ -1,0 +1,26 @@
+services:
+    nextjsreact:
+        build: config/nextjsreact
+        container_name: nextjsreact
+        restart: unless-stopped
+        environment:
+            NODE_OPTIONS: "--max-http-header-size=32768"
+        volumes:
+            - ./websites/production:/var/www
+    nuxtjsvue:
+        build: config/nuxtjsvue
+        container_name: nuxtjsvue
+        restart: unless-stopped
+        environment:
+            NODE_OPTIONS: "--max-http-header-size=32768"
+        volumes:
+            - ./websites/production:/var/www
+    webnginx:
+        build: config/webnginx
+        container_name: webnginx
+        restart: unless-stopped
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./websites/production:/var/www

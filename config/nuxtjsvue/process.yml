@@ -1,0 +1,4 @@
+apps:
+    - script: /var/www/nuxtjsvue/index.mjs
+      instances: 12
+      exec_mode: cluster
